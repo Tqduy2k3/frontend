@@ -23,6 +23,12 @@ const mutation = useMutation({
   onSuccess: () => {
     message.value = 'Success!';
   },
+  onError: (error) => {
+    router.push({ 
+      name: 'ErrorPage', 
+      query: { error: error.message || 'Error when add information' } 
+    });
+  }
 });
 
 async function onAddContact(contact) {
